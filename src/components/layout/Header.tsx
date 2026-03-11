@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const navigation = [
-  { name: "About", href: "/about" },
+  { name: "People", href: "/people" },
   {
     name: "Services",
     href: "/services",
@@ -21,7 +24,7 @@ const navigation = [
   { name: "Projects", href: "/projects" },
   { name: "AI Tools", href: "/ai-tools" },
   { name: "Insights", href: "/insights" },
-  { name: "Careers", href: "/careers" },
+  { name: "Working at Bunt", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -35,12 +38,14 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-primary">BUNT</span>
-              <span className="text-sm text-text-muted ml-1 hidden sm:inline">
-                & Associates
-              </span>
-            </div>
+            <Image
+              src={`${basePath}/images/bunt-logo.svg`}
+              alt="Bunt & Associates"
+              width={140}
+              height={40}
+              className="h-10 w-auto invert"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

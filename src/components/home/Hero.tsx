@@ -2,7 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Sparkles } from "lucide-react";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -53,7 +56,6 @@ export default function Hero() {
       const h = canvas.offsetHeight;
       ctx.clearRect(0, 0, w, h);
 
-      // Draw grid lines (roads)
       ctx.strokeStyle = "rgba(15, 76, 117, 0.08)";
       ctx.lineWidth = 2;
       for (let y = 0; y < h; y += 80) {
@@ -69,7 +71,6 @@ export default function Hero() {
         ctx.stroke();
       }
 
-      // Draw and move vehicles
       vehicles.forEach((v) => {
         if (v.lane % 2 === 0) {
           v.x += v.speed * v.direction;
@@ -86,7 +87,6 @@ export default function Hero() {
         ctx.fillStyle = v.color + "40";
         ctx.fill();
 
-        // Trail
         ctx.beginPath();
         if (v.lane % 2 === 0) {
           ctx.moveTo(v.x - v.direction * 15, v.y);
@@ -127,36 +127,53 @@ export default function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-3xl">
+          {/* Logo */}
+          <div className="mb-8">
+            <Image
+              src={`${basePath}/images/bunt-logo.svg`}
+              alt="Bunt & Associates"
+              width={200}
+              height={60}
+              className="h-14 w-auto invert"
+              priority
+            />
+          </div>
+
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
             <Sparkles className="w-4 h-4" />
             Now with AI-Powered Transportation Tools
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-            Shaping the Future of{" "}
-            <span className="text-primary">Transportation</span>
+            Healthy & Connected{" "}
+            <span className="text-primary">Communities</span>
           </h1>
 
-          <p className="text-xl text-text-muted leading-relaxed mb-8 max-w-2xl">
-            Canada&apos;s leading transportation planning and engineering firm.
-            30+ years of expertise, now powered by AI. We deliver innovative,
-            data-driven solutions that move communities forward.
+          <p className="text-xl text-text-muted leading-relaxed mb-4 max-w-2xl">
+            We envision a future where all communities are healthy and
+            connected in equitable and sustainable ways.
+          </p>
+
+          <p className="text-lg text-text-muted leading-relaxed mb-8 max-w-2xl">
+            Western Canada&apos;s leading transportation planning and engineering
+            firm. Over 30 years of expertise prioritizing people, integrity,
+            and teamwork.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
-              href="/ai-tools"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors shadow-lg shadow-primary/20"
-            >
-              Try Our AI Tools
-              <Sparkles className="w-4 h-4" />
-            </Link>
-            <Link
               href="/services"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary font-semibold rounded-lg border-2 border-primary/20 hover:border-primary hover:bg-primary/5 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors shadow-lg shadow-primary/20"
             >
               Our Services
               <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/ai-tools"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary font-semibold rounded-lg border-2 border-primary/20 hover:border-primary hover:bg-primary/5 transition-colors"
+            >
+              Try Our AI Tools
+              <Sparkles className="w-4 h-4" />
             </Link>
           </div>
 
@@ -164,9 +181,9 @@ export default function Hero() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-16 pt-8 border-t border-border">
             {[
               { value: "30+", label: "Years Experience" },
-              { value: "60+", label: "Team Members" },
+              { value: "50+", label: "Team Members" },
               { value: "5", label: "Offices" },
-              { value: "1000+", label: "Projects Delivered" },
+              { value: "1000+", label: "Projects Since 2017" },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-3xl font-bold text-primary">{stat.value}</div>
@@ -174,6 +191,37 @@ export default function Hero() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Service images floating */}
+      <div className="hidden xl:block absolute right-12 top-1/2 -translate-y-1/2 space-y-4">
+        <div className="w-48 h-32 rounded-xl overflow-hidden shadow-lg border border-border opacity-80 hover:opacity-100 transition-opacity">
+          <Image
+            src={`${basePath}/images/services/transportation-engineering.png`}
+            alt="Transportation Engineering"
+            width={192}
+            height={128}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="w-48 h-32 rounded-xl overflow-hidden shadow-lg border border-border opacity-80 hover:opacity-100 transition-opacity ml-8">
+          <Image
+            src={`${basePath}/images/services/sustainable-planning.png`}
+            alt="Sustainable Planning"
+            width={192}
+            height={128}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="w-48 h-32 rounded-xl overflow-hidden shadow-lg border border-border opacity-80 hover:opacity-100 transition-opacity">
+          <Image
+            src={`${basePath}/images/services/safety.png`}
+            alt="Safety"
+            width={192}
+            height={128}
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
     </section>

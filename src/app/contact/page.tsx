@@ -19,7 +19,6 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, this would send to a backend
     setSubmitted(true);
   };
 
@@ -165,9 +164,23 @@ export default function ContactPage() {
                 <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
                   <Mail className="w-5 h-5 text-primary" /> General Inquiries
                 </h3>
-                <p className="text-sm text-text-muted mb-2">info@bunteng.com</p>
-                <p className="text-sm text-text-muted">
+                <a href="mailto:info@bunteng.com" className="text-sm text-primary font-medium hover:underline">
+                  info@bunteng.com
+                </a>
+                <p className="text-sm text-text-muted mt-2">
                   We respond to all inquiries within one business day.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl border border-border p-6">
+                <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                  <Mail className="w-5 h-5 text-primary" /> Careers
+                </h3>
+                <a href="mailto:careers@bunteng.com" className="text-sm text-primary font-medium hover:underline">
+                  careers@bunteng.com
+                </a>
+                <p className="text-sm text-text-muted mt-2">
+                  Interested in joining our team? Send us your resume.
                 </p>
               </div>
 
@@ -178,9 +191,12 @@ export default function ContactPage() {
                     {office.city}{office.isHeadquarters ? " (Headquarters)" : ""}
                   </h3>
                   <p className="text-sm text-text-muted mb-2">{office.address}</p>
-                  <p className="text-sm text-primary font-medium flex items-center gap-1">
+                  <p className="text-sm text-primary font-medium flex items-center gap-1 mb-1">
                     <Phone className="w-3 h-3" /> {office.phone}
                   </p>
+                  <a href={`mailto:${office.email}`} className="text-sm text-text-muted flex items-center gap-1 hover:text-primary transition-colors">
+                    <Mail className="w-3 h-3" /> {office.email}
+                  </a>
                 </div>
               ))}
             </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ChatBot from "@/components/chat/ChatBot";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Bunt & Associates",
   },
   description:
-    "The leading transportation planning and engineering consulting firm in Western Canada. AI-powered traffic analysis, sustainable transportation planning, and innovative design solutions.",
+    "Western Canada's leading transportation planning and engineering consulting firm. AI-powered traffic analysis, sustainable transportation planning, and innovative design solutions.",
   keywords: [
     "transportation planning",
     "traffic engineering",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Bunt & Associates",
     title: "Bunt & Associates | Transportation Planning & Engineering",
     description:
-      "The leading transportation planning and engineering consulting firm in Western Canada with AI-powered tools.",
+      "Western Canada's leading transportation planning and engineering consulting firm with AI-powered tools.",
   },
   twitter: {
     card: "summary_large_image",
@@ -51,6 +52,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen pt-16">{children}</main>
         <Footer />
+        <ChatBot />
       </body>
     </html>
   );

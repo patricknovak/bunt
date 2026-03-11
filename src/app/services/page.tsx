@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Route,
   Bike,
@@ -10,6 +11,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { services } from "@/lib/data/services";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -54,35 +57,37 @@ export default function ServicesPage() {
               >
                 {/* Visual */}
                 <div className="lg:w-1/2">
-                  <div
-                    className="rounded-2xl p-12 flex flex-col items-center justify-center min-h-[300px]"
-                    style={{
-                      background: `linear-gradient(135deg, ${service.color}15, ${service.color}08)`,
-                    }}
-                  >
+                  <div className="rounded-2xl overflow-hidden relative min-h-[300px]">
+                    <Image
+                      src={`${basePath}${service.image}`}
+                      alt={service.title}
+                      width={600}
+                      height={400}
+                      className="w-full h-full object-cover rounded-2xl"
+                    />
                     <div
-                      className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
+                      className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center"
                       style={{
-                        backgroundColor: service.color + "20",
-                        color: service.color,
+                        background: `linear-gradient(135deg, ${service.color}40, ${service.color}20)`,
                       }}
                     >
-                      {iconMap[service.icon]}
-                    </div>
-                    <div className="space-y-2">
-                      {service.highlights.map((h) => (
-                        <div
-                          key={h}
-                          className="flex items-center gap-2 text-sm"
-                          style={{ color: service.color }}
-                        >
+                      <div
+                        className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6 bg-white/90 backdrop-blur-sm"
+                        style={{ color: service.color }}
+                      >
+                        {iconMap[service.icon]}
+                      </div>
+                      <div className="space-y-2">
+                        {service.highlights.map((h) => (
                           <div
-                            className="w-1.5 h-1.5 rounded-full"
-                            style={{ backgroundColor: service.color }}
-                          />
-                          {h}
-                        </div>
-                      ))}
+                            key={h}
+                            className="flex items-center gap-2 text-sm text-white font-medium"
+                          >
+                            <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                            {h}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

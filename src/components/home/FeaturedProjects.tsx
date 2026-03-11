@@ -1,6 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, MapPin } from "lucide-react";
 import { getFeaturedProjects } from "@/lib/data/projects";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function FeaturedProjects() {
   const featured = getFeaturedProjects();
@@ -15,6 +18,7 @@ export default function FeaturedProjects() {
             </h2>
             <p className="text-lg text-text-muted max-w-xl">
               Delivering impactful transportation solutions across Western Canada.
+              Over 1,000 projects completed since 2017.
             </p>
           </div>
           <Link
@@ -35,19 +39,22 @@ export default function FeaturedProjects() {
                 index === 0 ? "md:col-span-2" : ""
               }`}
             >
-              {/* Image placeholder */}
               <div
                 className={`${
                   index === 0 ? "h-64" : "h-48"
-                } bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center`}
+                } relative overflow-hidden`}
               >
-                <div className="text-center">
-                  <div className="w-16 h-16 mx-auto rounded-full bg-white/80 flex items-center justify-center mb-2">
-                    <MapPin className="w-8 h-8 text-primary" />
-                  </div>
-                  <span className="text-sm text-primary/60 font-medium">
-                    {project.location}
-                  </span>
+                <Image
+                  src={`${basePath}${project.image}`}
+                  alt={project.title}
+                  width={800}
+                  height={index === 0 ? 256 : 192}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white text-sm">
+                  <MapPin className="w-4 h-4" />
+                  {project.location}
                 </div>
               </div>
 

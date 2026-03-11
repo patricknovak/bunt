@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail, Linkedin } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Instagram } from "lucide-react";
 import { offices } from "@/lib/data/offices";
 
 export default function Footer() {
@@ -10,10 +10,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold mb-4">BUNT</h3>
+            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+              We envision a future where all communities are healthy and
+              connected in equitable and sustainable ways.
+            </p>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              The leading transportation planning and engineering consulting
-              firm in Western Canada. Over 30 years of expertise delivering
-              innovative, data-driven solutions.
+              Western Canada&apos;s leading transportation planning and engineering
+              consulting firm. Over 30 years of expertise.
             </p>
             <div className="flex gap-4">
               <a
@@ -24,6 +27,15 @@ export default function Footer() {
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/buntengineering/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -70,6 +82,11 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
+                <Link href="/people" className="hover:text-white transition-colors">
+                  People
+                </Link>
+              </li>
+              <li>
                 <Link href="/projects" className="hover:text-white transition-colors">
                   Projects
                 </Link>
@@ -86,17 +103,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/careers" className="hover:text-white transition-colors">
-                  Careers
+                  Working at Bunt
                 </Link>
               </li>
               <li>
                 <Link href="/client-portal" className="hover:text-white transition-colors">
                   Client Portal
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
-                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -116,6 +128,10 @@ export default function Footer() {
                       <Phone className="w-3 h-3" />
                       {office.phone}
                     </span>
+                    <a href={`mailto:${office.email}`} className="flex items-center gap-1 hover:text-white transition-colors">
+                      <Mail className="w-3 h-3" />
+                      {office.email}
+                    </a>
                   </div>
                 </li>
               ))}
@@ -123,7 +139,16 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        {/* Indigenous Acknowledgment */}
+        <div className="border-t border-gray-800 mt-12 pt-8 mb-8">
+          <p className="text-xs text-gray-500 leading-relaxed max-w-4xl">
+            Bunt & Associates acknowledges the Indigenous Peoples of the lands on which our offices are located
+            and where we work. We are committed to supporting reconciliation efforts and fostering respectful
+            relationships with Indigenous communities.
+          </p>
+        </div>
+
+        <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500">
             &copy; {new Date().getFullYear()} Bunt & Associates Engineering Ltd. All rights reserved.
           </p>

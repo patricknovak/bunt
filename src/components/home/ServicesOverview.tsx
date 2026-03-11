@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Route,
   Bike,
@@ -9,6 +10,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { services } from "@/lib/data/services";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const iconMap: Record<string, React.ReactNode> = {
   Route: <Route className="w-8 h-8" />,
@@ -38,25 +41,37 @@ export default function ServicesOverview() {
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="group p-8 rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 bg-white"
+              className="group rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 bg-white overflow-hidden"
             >
-              <div
-                className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-colors"
-                style={{
-                  backgroundColor: service.color + "15",
-                  color: service.color,
-                }}
-              >
-                {iconMap[service.icon]}
+              <div className="h-40 relative overflow-hidden">
+                <Image
+                  src={`${basePath}${service.image}`}
+                  alt={service.title}
+                  width={400}
+                  height={160}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div
+                  className="absolute bottom-4 left-4 w-10 h-10 rounded-lg flex items-center justify-center"
+                  style={{
+                    backgroundColor: service.color,
+                    color: "white",
+                  }}
+                >
+                  {iconMap[service.icon]}
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-text-muted text-sm leading-relaxed mb-4">
-                {service.description.slice(0, 150)}...
-              </p>
-              <div className="flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                Learn More <ArrowRight className="w-4 h-4" />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-text-muted text-sm leading-relaxed mb-4">
+                  {service.description.slice(0, 150)}...
+                </p>
+                <div className="flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  Learn More <ArrowRight className="w-4 h-4" />
+                </div>
               </div>
             </Link>
           ))}

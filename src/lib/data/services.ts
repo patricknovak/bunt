@@ -5,6 +5,7 @@ export interface Service {
   description: string;
   icon: string;
   color: string;
+  image: string;
   features: string[];
   highlights: string[];
 }
@@ -18,6 +19,7 @@ export const services: Service[] = [
       "Comprehensive transportation engineering services including impact assessments, demand forecasting, micro-simulation modelling, and corridor analysis. Our team delivers data-driven solutions for complex urban and rural transportation challenges.",
     icon: "Route",
     color: "#0f4c75",
+    image: "/images/services/transportation-engineering.png",
     features: [
       "Transportation Impact Assessments",
       "Studies and Master Plans",
@@ -43,6 +45,7 @@ export const services: Service[] = [
       "Forward-thinking sustainable transportation solutions that prioritize active transportation, transit integration, and multimodal networks. We help communities build transportation systems that are equitable, accessible, and environmentally responsible.",
     icon: "Bike",
     color: "#1b998b",
+    image: "/images/services/sustainable-planning.png",
     features: [
       "Active and Multimodal Transportation Plans",
       "Cycling Facility Planning and Design",
@@ -65,6 +68,7 @@ export const services: Service[] = [
       "Evidence-based safety analysis and planning services that protect all road users. From comprehensive road safety audits to traffic calming strategies, we apply proven methodologies to identify risks and implement effective countermeasures.",
     icon: "Shield",
     color: "#e8630a",
+    image: "/images/services/safety.png",
     features: [
       "Road Safety Audits and Reviews",
       "Railway Crossing Safety Audits and Reviews",
@@ -88,6 +92,7 @@ export const services: Service[] = [
       "Strategic parking planning that balances supply with demand. Our data-driven approach helps clients right-size parking, reduce costs, and support sustainable transportation goals through innovative parking management strategies.",
     icon: "ParkingCircle",
     color: "#3282b8",
+    image: "/images/services/parking.png",
     features: [
       "Right-sizing Supply Analysis",
       "Parking Demand Forecasting",
@@ -110,6 +115,7 @@ export const services: Service[] = [
       "Creative and technically excellent transportation design services, from conceptual road layouts to detailed intersection designs. We bring engineering precision and innovative thinking to every design challenge.",
     icon: "PenTool",
     color: "#6c5ce7",
+    image: "/images/services/design.png",
     features: [
       "Conceptual and Functional Road/Intersection Design",
       "Transit Facility Planning and Design",
@@ -132,6 +138,7 @@ export const services: Service[] = [
       "Meaningful community engagement that builds consensus and supports better outcomes. We design and facilitate inclusive participation processes that amplify diverse voices and foster informed decision-making.",
     icon: "Users",
     color: "#00b894",
+    image: "/images/services/design.png",
     features: [
       "Council/Committee/Public Meeting Presentations",
       "Stakeholder and Public Surveys",

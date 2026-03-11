@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, ArrowRight, Filter } from "lucide-react";
 import { projects } from "@/lib/data/projects";
 import { services } from "@/lib/data/services";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState<string>("all");
@@ -67,12 +70,18 @@ export default function ProjectsPage() {
                 href={`/projects/${project.slug}`}
                 className="group overflow-hidden rounded-2xl bg-white border border-border hover:shadow-xl transition-all duration-300"
               >
-                <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
-                    <span className="text-sm text-primary/70 font-medium">
-                      {project.location}
-                    </span>
+                <div className="h-48 relative overflow-hidden">
+                  <Image
+                    src={`${basePath}${project.image}`}
+                    alt={project.title}
+                    width={400}
+                    height={192}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-3 left-3 flex items-center gap-1 text-white text-sm">
+                    <MapPin className="w-3.5 h-3.5" />
+                    {project.location}
                   </div>
                 </div>
                 <div className="p-6">

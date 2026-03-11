@@ -3,6 +3,7 @@ export interface Office {
   province: string;
   address: string;
   phone: string;
+  email: string;
   coordinates: [number, number];
   isHeadquarters?: boolean;
 }
@@ -11,37 +12,42 @@ export const offices: Office[] = [
   {
     city: "Vancouver",
     province: "BC",
-    address: "1550 – 1050 West Pender Street, Vancouver, BC V6E 3S7",
-    phone: "(604) 678-3531",
+    address: "Suite 1550, 1050 West Pender Street, Vancouver, BC V6E 3S7",
+    phone: "(604) 685-6427",
+    email: "vancouver@bunteng.com",
     coordinates: [49.2827, -123.1207],
     isHeadquarters: true,
   },
   {
     city: "Victoria",
     province: "BC",
-    address: "301 – 1321 Blanshard Street, Victoria, BC V8W 0B6",
-    phone: "(250) 419-0642",
+    address: "Suite 535, 645 Fort Street, Victoria, BC V8W 1G2",
+    phone: "(250) 592-6122",
+    email: "victoria@bunteng.com",
     coordinates: [48.4284, -123.3656],
   },
   {
     city: "Kelowna",
     province: "BC",
-    address: "200 – 1634 Harvey Avenue, Kelowna, BC V1Y 6G2",
-    phone: "(250) 762-2517",
+    address: "Suite 303, 460 Doyle Ave, Kelowna, BC V1Y 0C2",
+    phone: "(778) 738-3940",
+    email: "info@bunteng.com",
     coordinates: [49.8863, -119.4966],
   },
   {
     city: "Calgary",
     province: "AB",
-    address: "2820 Lougheed Place SW, Calgary, AB T3E 7K8",
-    phone: "(403) 250-5587",
+    address: "Suite 113, 334 11 Avenue SE, Calgary, AB T2G 0Y2",
+    phone: "(403) 252-3343",
+    email: "calgary@bunteng.com",
     coordinates: [51.0447, -114.0719],
   },
   {
     city: "Edmonton",
     province: "AB",
-    address: "17008 – 107 Avenue NW, Edmonton, AB T5S 1G6",
-    phone: "(780) 451-6915",
+    address: "Suite 500, 10339 124 Street NW, Edmonton, AB T5N 3W1",
+    phone: "(780) 732-5373",
+    email: "edmonton@bunteng.com",
     coordinates: [53.5461, -113.4938],
   },
 ];

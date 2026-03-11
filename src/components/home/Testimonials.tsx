@@ -1,4 +1,4 @@
-import { MapPin } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 import { offices } from "@/lib/data/offices";
 
 export default function Testimonials() {
@@ -11,8 +11,8 @@ export default function Testimonials() {
             Trusted Across Canada
           </h2>
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            Hundreds of repeat clients trust us with their most complex
-            transportation challenges.
+            Hundreds of repeat public and private sector clients trust us with
+            their most complex transportation challenges.
           </p>
         </div>
 
@@ -77,6 +77,10 @@ export default function Testimonials() {
                 {office.province}
               </div>
               <div className="text-xs text-text-muted mt-2">{office.phone}</div>
+              <a href={`mailto:${office.email}`} className="text-xs text-primary mt-1 flex items-center justify-center gap-1 hover:underline">
+                <Mail className="w-3 h-3" />
+                {office.email}
+              </a>
             </div>
           ))}
         </div>

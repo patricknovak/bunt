@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, MapPin, Calendar, Building2, CheckCircle } from "lucide-react";
 import { projects, getProjectBySlug } from "@/lib/data/projects";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -43,15 +46,25 @@ export default async function ProjectPage({
   return (
     <div className="py-20">
       {/* Header */}
-      <section className="bg-gradient-to-r from-primary to-primary-dark text-white py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={`${basePath}${project.image}`}
+            alt={project.title}
+            width={1200}
+            height={400}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary-dark/80" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white mb-6"
           >
             <ArrowLeft className="w-4 h-4" /> All Projects
           </Link>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
             {project.title}
           </h1>
           <div className="flex flex-wrap gap-6 text-white/80">
@@ -67,6 +80,8 @@ export default async function ProjectPage({
           </div>
         </div>
       </section>
+
+
 
       {/* Content */}
       <section className="py-16">

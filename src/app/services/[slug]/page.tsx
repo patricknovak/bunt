@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
 import { services } from "@/lib/data/services";
 import { getProjectsByService } from "@/lib/data/projects";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -46,23 +49,33 @@ export default async function ServicePage({
   return (
     <div className="py-20">
       {/* Header */}
-      <section
-        className="py-20"
-        style={{
-          background: `linear-gradient(135deg, ${service.color}15, ${service.color}05)`,
-        }}
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={`${basePath}${service.image}`}
+            alt={service.title}
+            width={1200}
+            height={400}
+            className="w-full h-full object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(135deg, ${service.color}dd, ${service.color}99)`,
+            }}
+          />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-primary mb-6"
+            className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white mb-6"
           >
             <ArrowLeft className="w-4 h-4" /> All Services
           </Link>
-          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
             {service.title}
           </h1>
-          <p className="text-xl text-text-muted max-w-3xl">
+          <p className="text-xl text-white/80 max-w-3xl">
             {service.description}
           </p>
         </div>
