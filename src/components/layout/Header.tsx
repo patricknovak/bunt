@@ -33,7 +33,7 @@ export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-800 backdrop-blur-sm border-b border-border dark:border-gray-600">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#0d1526]/95 backdrop-blur-md border-b border-border dark:border-blue-900/50 shadow-sm dark:shadow-blue-950/50">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -59,18 +59,18 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground dark:text-gray-200 hover:text-primary transition-colors rounded-md hover:bg-surface dark:hover:bg-gray-800"
+                  className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground dark:text-white hover:text-primary transition-colors rounded-md hover:bg-surface dark:hover:bg-white/10"
                 >
                   {item.name}
                   {item.children && <ChevronDown className="w-3 h-3" />}
                 </Link>
                 {item.children && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-border dark:border-gray-700 py-2">
+                  <div className="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-[#141c2e] rounded-lg shadow-lg border border-border dark:border-blue-900/50 py-2">
                     {item.children.map((child) => (
                       <Link
                         key={child.name}
                         href={child.href}
-                        className="block px-4 py-2 text-sm text-foreground dark:text-gray-200 hover:bg-surface dark:hover:bg-gray-700 hover:text-primary transition-colors"
+                        className="block px-4 py-2 text-sm text-foreground dark:text-gray-100 hover:bg-surface dark:hover:bg-white/10 hover:text-primary transition-colors"
                       >
                         {child.name}
                       </Link>
@@ -90,7 +90,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="lg:hidden p-2 text-foreground dark:text-gray-200"
+            className="lg:hidden p-2 text-foreground dark:text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -100,13 +100,13 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white dark:bg-gray-800 border-t border-border dark:border-gray-600">
+        <div className="lg:hidden bg-white dark:bg-[#0d1526] border-t border-border dark:border-blue-900/50">
           <div className="px-4 py-4 space-y-1">
             {navigation.map((item) => (
               <div key={item.name}>
                 <Link
                   href={item.href}
-                  className="block px-3 py-2 text-base font-medium text-foreground dark:text-gray-200 hover:text-primary hover:bg-surface dark:hover:bg-gray-800 rounded-md"
+                  className="block px-3 py-2 text-base font-medium text-foreground dark:text-white hover:text-primary hover:bg-surface dark:hover:bg-white/10 rounded-md"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}

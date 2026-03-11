@@ -9,7 +9,7 @@ export default function FeaturedProjects() {
   const featured = getFeaturedProjects();
 
   return (
-    <section className="py-20 bg-surface">
+    <section className="py-20 bg-surface dark:bg-[#0f1a30]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 gap-4">
           <div>
@@ -35,7 +35,7 @@ export default function FeaturedProjects() {
             <Link
               key={project.slug}
               href={`/projects/${project.slug}`}
-              className={`group relative overflow-hidden rounded-2xl bg-white border border-border hover:shadow-xl transition-all duration-300 ${
+              className={`group relative overflow-hidden rounded-2xl bg-white dark:bg-[#141c2e] border border-border dark:border-blue-900/40 hover:shadow-xl dark:hover:shadow-blue-950/30 hover:border-primary/30 dark:hover:border-blue-500/40 transition-all duration-300 ${
                 index === 0 ? "md:col-span-2" : ""
               }`}
             >

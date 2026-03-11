@@ -118,7 +118,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-white via-surface to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-white via-surface to-blue-50 dark:from-[#0b1121] dark:via-[#0f1a30] dark:to-[#0b1121]">
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
@@ -144,7 +144,7 @@ export default function Hero() {
             Now with AI-Powered Transportation Tools
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground dark:text-gray-100 leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground dark:text-white leading-tight mb-6">
             Healthy & Connected{" "}
             <span className="text-primary">Communities</span>
           </h1>
@@ -170,7 +170,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/ai-tools"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary font-semibold rounded-lg border-2 border-primary/20 hover:border-primary hover:bg-primary/5 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-white/10 text-primary dark:text-white font-semibold rounded-lg border-2 border-primary/20 dark:border-blue-500/30 hover:border-primary dark:hover:border-blue-400 hover:bg-primary/5 dark:hover:bg-white/15 transition-colors"
             >
               Try Our AI Tools
               <Sparkles className="w-4 h-4" />
@@ -178,7 +178,7 @@ export default function Hero() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-16 pt-8 border-t border-border dark:border-gray-700">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-16 pt-8 border-t border-border dark:border-blue-900/40">
             {[
               { value: "30+", label: "Years Experience" },
               { value: "50+", label: "Team Members" },
@@ -196,7 +196,7 @@ export default function Hero() {
 
       {/* Service images floating */}
       <div className="hidden xl:block absolute right-12 top-1/2 -translate-y-1/2 space-y-4">
-        <div className="w-48 h-32 rounded-xl overflow-hidden shadow-lg border border-border dark:border-gray-700 opacity-80 hover:opacity-100 transition-opacity">
+        <div className="w-48 h-32 rounded-xl overflow-hidden shadow-lg border border-border dark:border-blue-900/40 opacity-80 hover:opacity-100 transition-opacity">
           <Image
             src={`${basePath}/images/services/transportation-engineering.png`}
             alt="Transportation Engineering"
@@ -205,7 +205,7 @@ export default function Hero() {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="w-48 h-32 rounded-xl overflow-hidden shadow-lg border border-border dark:border-gray-700 opacity-80 hover:opacity-100 transition-opacity ml-8">
+        <div className="w-48 h-32 rounded-xl overflow-hidden shadow-lg border border-border dark:border-blue-900/40 opacity-80 hover:opacity-100 transition-opacity ml-8">
           <Image
             src={`${basePath}/images/services/sustainable-planning.png`}
             alt="Sustainable Planning"
@@ -214,7 +214,7 @@ export default function Hero() {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="w-48 h-32 rounded-xl overflow-hidden shadow-lg border border-border dark:border-gray-700 opacity-80 hover:opacity-100 transition-opacity">
+        <div className="w-48 h-32 rounded-xl overflow-hidden shadow-lg border border-border dark:border-blue-900/40 opacity-80 hover:opacity-100 transition-opacity">
           <Image
             src={`${basePath}/images/services/safety.png`}
             alt="Safety"
