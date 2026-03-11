@@ -97,7 +97,7 @@ export default function AIToolsPage() {
   return (
     <div className="py-20">
       {/* Header */}
-      <section className="bg-gradient-to-br from-foreground via-primary-dark to-primary text-white py-20">
+      <section className="bg-gradient-to-br from-[#1a1a2e] via-primary-dark to-primary text-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 text-white/90 rounded-full text-sm font-medium mb-6">
             <Sparkles className="w-4 h-4" />

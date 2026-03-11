@@ -72,7 +72,7 @@ export default function ServicesPage() {
                       }}
                     >
                       <div
-                        className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6 bg-white/90 backdrop-blur-sm"
+                        className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6 !bg-white/90 backdrop-blur-sm"
                         style={{ color: service.color }}
                       >
                         {iconMap[service.icon]}
