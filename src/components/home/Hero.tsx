@@ -134,7 +134,7 @@ export default function Hero() {
               alt="Bunt & Associates"
               width={200}
               height={60}
-              className="h-14 w-auto invert"
+              className="h-14 w-auto"
               priority
             />
           </div>

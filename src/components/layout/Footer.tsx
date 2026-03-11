@@ -37,6 +37,17 @@ export default function Footer() {
               >
                 <Instagram className="w-5 h-5" />
               </a>
+              <a
+                href="https://bsky.app/profile/bunteng.bsky.social"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Bluesky"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.785 2.627 3.6 3.476 6.152 3.228-4.56.444-8.14 2.395-4.544 8.168C5.58 27.775 13.167 19.535 12 16.424c-1.166 3.111 6.42 11.351 9.768 5.22 3.596-5.774.016-7.725-4.544-8.169 2.552.248 5.367-.6 6.152-3.228C23.622 9.418 24 4.458 24 3.768c0-.69-.139-1.861-.902-2.203-.659-.3-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z" />
+                </svg>
+              </a>
             </div>
           </div>
 
