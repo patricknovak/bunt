@@ -55,7 +55,7 @@ const tools = [
 
 export default function AIShowcase() {
   return (
-    <section className="py-20 bg-gradient-to-b from-foreground to-primary-dark text-white">
+    <section className="py-20 bg-gradient-to-b from-[#1a1a2e] to-[#0b3d5e] dark:from-[#0a0e1a] dark:to-[#0c2240] text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 text-white/90 rounded-full text-sm font-medium mb-6">
@@ -106,7 +106,7 @@ export default function AIShowcase() {
         <div className="text-center mt-12">
           <Link
             href="/ai-tools"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-white/90 transition-colors shadow-lg"
+            className="inline-flex items-center gap-2 px-8 py-3 !bg-white !text-[#0f4c75] font-semibold rounded-lg hover:!bg-gray-100 transition-colors shadow-lg"
           >
             Explore All AI Tools
             <ArrowRight className="w-4 h-4" />

@@ -182,7 +182,7 @@ export default async function ProjectPage({
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-block w-full text-center px-4 py-2 bg-white text-primary rounded-lg font-medium hover:bg-white/90 transition-colors"
+                  className="inline-block w-full text-center px-4 py-2 !bg-white !text-[#0f4c75] rounded-lg font-medium hover:!bg-gray-100 transition-colors"
                 >
                   Get in Touch
                 </Link>

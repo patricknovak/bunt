@@ -65,24 +65,60 @@ html {
 
 /* Dark mode */
 .dark {
-  --background: #0b1121;
-  --foreground: #f1f5f9;
-  --primary: #3b82f6;
-  --primary-light: #60a5fa;
-  --primary-dark: #2563eb;
-  --secondary: #2dd4bf;
+  --background: #0c1222;
+  --foreground: #f8fafc;
+  --primary: #5b9fff;
+  --primary-light: #85b8ff;
+  --primary-dark: #3a7ee0;
+  --secondary: #34d9c3;
   --secondary-light: #5eead4;
-  --accent: #f97316;
-  --accent-light: #fb923c;
-  --surface: #141c2e;
-  --surface-dark: #1e293b;
-  --text-muted: #94a3b8;
-  --border: #1e3a5f;
+  --accent: #fb923c;
+  --accent-light: #fdba74;
+  --surface: #162032;
+  --surface-dark: #1e2d44;
+  --text-muted: #b0bfd0;
+  --border: #2a4060;
 }
 
 .dark body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Dark mode: auto-fix literal bg-white cards, panels, etc. */
+.dark .bg-white {
+  background-color: var(--surface) !important;
+}
+
+.dark .bg-surface {
+  background-color: var(--surface-dark) !important;
+}
+
+.dark .bg-green-50 {
+  background-color: #0d2818 !important;
+}
+
+.dark .border-green-200 {
+  border-color: #166534 !important;
+}
+
+/* Dark mode form elements */
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+  border-color: var(--border) !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+.dark option {
+  background-color: var(--surface) !important;
+  color: var(--foreground) !important;
 }
 
 /* Image loading skeleton */

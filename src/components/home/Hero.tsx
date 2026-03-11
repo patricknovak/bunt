@@ -33,7 +33,10 @@ export default function Hero() {
       ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
     };
 
-    const colors = ["#0f4c75", "#3282b8", "#1b998b", "#2ec4b6", "#e8630a"];
+    const isDark = document.documentElement.classList.contains("dark");
+    const colors = isDark
+      ? ["#5b9fff", "#85b8ff", "#34d9c3", "#5eead4", "#fb923c"]
+      : ["#0f4c75", "#3282b8", "#1b998b", "#2ec4b6", "#e8630a"];
 
     const initVehicles = () => {
       vehicles.length = 0;
@@ -56,7 +59,7 @@ export default function Hero() {
       const h = canvas.offsetHeight;
       ctx.clearRect(0, 0, w, h);
 
-      ctx.strokeStyle = "rgba(15, 76, 117, 0.08)";
+      ctx.strokeStyle = isDark ? "rgba(91, 159, 255, 0.1)" : "rgba(15, 76, 117, 0.08)";
       ctx.lineWidth = 2;
       for (let y = 0; y < h; y += 80) {
         ctx.beginPath();
@@ -84,7 +87,7 @@ export default function Hero() {
 
         ctx.beginPath();
         ctx.arc(v.x, v.y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = v.color + "40";
+        ctx.fillStyle = v.color + (isDark ? "70" : "40");
         ctx.fill();
 
         ctx.beginPath();
@@ -95,7 +98,7 @@ export default function Hero() {
           ctx.moveTo(v.x, v.y - v.direction * 15);
           ctx.lineTo(v.x, v.y);
         }
-        ctx.strokeStyle = v.color + "30";
+        ctx.strokeStyle = v.color + (isDark ? "50" : "30");
         ctx.lineWidth = 2;
         ctx.stroke();
       });
@@ -118,7 +121,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-white via-surface to-blue-50 dark:from-[#0b1121] dark:via-[#0f1a30] dark:to-[#0b1121]">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-white via-surface to-blue-50 dark:from-[#0c1222] dark:via-[#111d33] dark:to-[#0c1222]">
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
@@ -170,7 +173,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/ai-tools"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-white/10 text-primary dark:text-white font-semibold rounded-lg border-2 border-primary/20 dark:border-blue-500/30 hover:border-primary dark:hover:border-blue-400 hover:bg-primary/5 dark:hover:bg-white/15 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 !bg-white dark:!bg-white/10 text-primary dark:text-white font-semibold rounded-lg border-2 border-primary/20 dark:border-primary/40 hover:border-primary dark:hover:border-primary hover:bg-primary/5 dark:hover:bg-white/20 transition-colors"
             >
               Try Our AI Tools
               <Sparkles className="w-4 h-4" />

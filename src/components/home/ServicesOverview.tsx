@@ -24,7 +24,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export default function ServicesOverview() {
   return (
-    <section className="py-20 bg-white dark:bg-[#0b1121]">
+    <section className="py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
@@ -41,7 +41,7 @@ export default function ServicesOverview() {
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="group rounded-2xl border border-border dark:border-blue-900/40 hover:border-primary/30 dark:hover:border-blue-500/40 hover:shadow-xl dark:hover:shadow-blue-950/30 transition-all duration-300 bg-white dark:bg-[#141c2e] overflow-hidden"
+              className="group rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 bg-white overflow-hidden"
             >
               <div className="h-40 relative overflow-hidden">
                 <Image
