@@ -33,7 +33,7 @@ export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-border dark:border-gray-700">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-800 backdrop-blur-sm border-b border-border dark:border-gray-600">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -100,7 +100,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white dark:bg-gray-900 border-t border-border dark:border-gray-700">
+        <div className="lg:hidden bg-white dark:bg-gray-800 border-t border-border dark:border-gray-600">
           <div className="px-4 py-4 space-y-1">
             {navigation.map((item) => (
               <div key={item.name}>
