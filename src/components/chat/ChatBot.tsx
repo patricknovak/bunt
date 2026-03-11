@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, User, Bot, Phone, Mail, ArrowRight } from "lucide-react";
 import { offices } from "@/lib/data/offices";
 import { services } from "@/lib/data/services";
+import { openings } from "@/lib/data/jobs";
 
 interface Message {
   id: number;
@@ -173,7 +174,7 @@ export default function ChatBot() {
       showOfficeInfo();
     } else if (lower.includes("career")) {
       addBotMessage(
-        "We're always looking for talented transportation professionals! We currently have a Junior Transportation Technologist position open in Edmonton.\n\nYou can send your resume directly to careers@bunteng.com. We welcome general applications and keep resumes on file for six months.\n\nWould you like to know anything else?",
+        `We're always looking for talented transportation professionals!${openings.length > 0 ? ` We currently have ${openings.length} open position${openings.length > 1 ? "s" : ""}: ${openings.map(j => `${j.title} in ${j.location}`).join(", ")}.` : ""}\n\nYou can send your resume directly to careers@bunteng.com. We welcome general applications and keep resumes on file for six months.\n\nWould you like to know anything else?`,
         [
           { label: "Learn about services", value: "services" },
           { label: "Start a project inquiry", value: "inquiry" },
@@ -248,6 +249,25 @@ export default function ChatBot() {
 
   const showSummary = (message: string) => {
     const info = { ...collectedInfo, message };
+
+    // Build mailto link so inquiry goes to the right office
+    const officeData = info.office
+      ? offices.find((o) => o.city === info.office)
+      : null;
+    const toEmail = officeData?.email || "info@bunteng.com";
+    const subject = encodeURIComponent(
+      `Website Inquiry: ${info.interest || "General"} - ${info.name || "New Lead"}`
+    );
+    const body = encodeURIComponent(
+      `New inquiry from website chatbot:\n\nName: ${info.name || "Not provided"}\nEmail: ${info.email || "Not provided"}\nPhone: ${info.phone || "Not provided"}\nInterest: ${info.interest || "General"}\nPreferred Office: ${info.office || "Any"}\n\nMessage:\n${info.message}`
+    );
+    const mailtoLink = `mailto:${toEmail}?subject=${subject}&body=${body}`;
+
+    // Open mailto to send the inquiry
+    if (typeof window !== "undefined") {
+      window.open(mailtoLink, "_blank");
+    }
+
     addBotMessage(
       `Thank you! Here's a summary of your inquiry:\n\n` +
         `**Name:** ${info.name || "Not provided"}\n` +
@@ -256,7 +276,7 @@ export default function ChatBot() {
         `**Interest:** ${info.interest || "General inquiry"}\n` +
         `**Office:** ${info.office || "Any"}\n` +
         `**Message:** ${info.message}\n\n` +
-        `A team member will follow up within one business day. In the meantime, you can also reach us at info@bunteng.com or call any of our offices directly.\n\nIs there anything else I can help with?`,
+        `We've prepared an email to ${toEmail} with your inquiry details. A team member will follow up within one business day.\n\nIs there anything else I can help with?`,
       [
         { label: "Learn about services", value: "services" },
         { label: "Find an office", value: "offices" },

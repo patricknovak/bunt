@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import {
   LayoutDashboard,
@@ -66,6 +67,73 @@ const statusColors: Record<string, string> = {
 };
 
 export default function ClientPortalPage() {
+  const [authenticated, setAuthenticated] = useState(false);
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Demo password - in production, this would be a real auth system
+    if (password === "buntclient2026") {
+      setAuthenticated(true);
+      setError(false);
+    } else {
+      setError(true);
+    }
+  };
+
+  if (!authenticated) {
+    return (
+      <div className="py-20 min-h-screen flex items-center justify-center bg-surface">
+        <div className="w-full max-w-md px-4">
+          <div className="bg-white rounded-2xl border border-border p-8 shadow-lg">
+            <div className="text-center mb-8">
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                <LayoutDashboard className="w-8 h-8 text-primary" />
+              </div>
+              <h1 className="text-2xl font-bold text-foreground">Client Portal</h1>
+              <p className="text-text-muted text-sm mt-2">
+                Sign in to access your project dashboard
+              </p>
+            </div>
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => { setPassword(e.target.value); setError(false); }}
+                  className={`w-full px-4 py-2.5 border rounded-lg text-sm ${error ? "border-red-400" : "border-border"}`}
+                  placeholder="Enter your client password"
+                />
+                {error && (
+                  <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3" /> Incorrect password
+                  </p>
+                )}
+              </div>
+              <button
+                type="submit"
+                className="w-full py-2.5 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors"
+              >
+                Sign In
+              </button>
+            </form>
+            <p className="text-xs text-text-muted text-center mt-6">
+              Don&apos;t have access?{" "}
+              <a href="mailto:info@bunteng.com" className="text-primary hover:underline">
+                Contact us
+              </a>{" "}
+              to request portal access.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="py-20 bg-surface min-h-screen">
       {/* Header */}
@@ -76,12 +144,8 @@ export default function ClientPortalPage() {
             <h1 className="text-2xl font-bold">Client Portal</h1>
           </div>
           <p className="text-white/70">
-            Demo Dashboard — Track your projects, documents, and communications
+            Track your projects, documents, and communications
           </p>
-          <div className="mt-4 px-4 py-2 bg-white/10 rounded-lg inline-flex items-center gap-2 text-sm">
-            <AlertCircle className="w-4 h-4" />
-            This is a demonstration. In production, this would be authenticated.
-          </div>
         </div>
       </section>
 

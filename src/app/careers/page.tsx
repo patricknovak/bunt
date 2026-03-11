@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { openings } from "@/lib/data/jobs";
 import {
   Briefcase,
   MapPin,
@@ -18,16 +19,6 @@ export const metadata: Metadata = {
   description:
     "Join Bunt & Associates - Western Canada's leading transportation consulting firm. Explore career opportunities in transportation planning and engineering.",
 };
-
-const openings = [
-  {
-    title: "Junior Transportation Technologist",
-    location: "Edmonton, AB",
-    type: "Full-time",
-    description:
-      "Focus on data collection, collation, and analysis with technical staff on client projects. Support senior engineers and planners on transportation studies.",
-  },
-];
 
 const benefits = [
   {

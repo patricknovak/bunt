@@ -1,63 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Calendar, ArrowRight, Tag } from "lucide-react";
+import { posts } from "@/lib/data/insights";
 
 export const metadata: Metadata = {
   title: "Insights",
   description:
     "Expert insights, industry trends, and thought leadership in transportation planning and engineering from Bunt & Associates.",
 };
-
-const posts = [
-  {
-    slug: "ai-traffic-analysis-future",
-    title: "How AI is Transforming Traffic Analysis: A Practitioner's Perspective",
-    excerpt: "AI-powered tools are revolutionizing how we analyze traffic patterns and predict future conditions. Here's what it means for transportation planning.",
-    date: "2026-03-01",
-    category: "AI & Technology",
-    readTime: "5 min read",
-  },
-  {
-    slug: "complete-streets-design-guide",
-    title: "Complete Streets Design: Balancing All Road Users",
-    excerpt: "A practical guide to designing streets that work for pedestrians, cyclists, transit users, and drivers - based on our project experience across Western Canada.",
-    date: "2026-02-15",
-    category: "Design",
-    readTime: "7 min read",
-  },
-  {
-    slug: "parking-right-sizing-strategies",
-    title: "Right-Sizing Parking: Reducing Oversupply Without Underserving",
-    excerpt: "How modern parking analysis techniques and shared parking strategies can reduce parking requirements by 20-40% while meeting actual demand.",
-    date: "2026-02-01",
-    category: "Parking",
-    readTime: "6 min read",
-  },
-  {
-    slug: "vision-zero-implementation",
-    title: "Implementing Vision Zero: Lessons from Canadian Cities",
-    excerpt: "Examining the successes and challenges of Vision Zero programs across Canada, with practical recommendations for municipalities.",
-    date: "2026-01-15",
-    category: "Safety",
-    readTime: "8 min read",
-  },
-  {
-    slug: "transit-oriented-development-tips",
-    title: "Making TOD Work: Transportation Planning for Transit-Oriented Development",
-    excerpt: "Key transportation planning considerations for successful transit-oriented development, from TIA methodology to parking strategies.",
-    date: "2026-01-01",
-    category: "Planning",
-    readTime: "6 min read",
-  },
-  {
-    slug: "micro-simulation-best-practices",
-    title: "Micro-Simulation Modelling: When, Why, and How",
-    excerpt: "A guide to when micro-simulation modelling adds value over traditional HCM analysis, and best practices for effective modelling.",
-    date: "2025-12-15",
-    category: "Engineering",
-    readTime: "7 min read",
-  },
-];
 
 export default function InsightsPage() {
   return (

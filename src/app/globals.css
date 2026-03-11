@@ -63,6 +63,40 @@ html {
   background: var(--primary);
 }
 
+/* Dark mode */
+.dark {
+  --background: #0f172a;
+  --foreground: #e2e8f0;
+  --primary: #3b82f6;
+  --primary-light: #60a5fa;
+  --primary-dark: #2563eb;
+  --secondary: #2dd4bf;
+  --secondary-light: #5eead4;
+  --accent: #f97316;
+  --accent-light: #fb923c;
+  --surface: #1e293b;
+  --surface-dark: #334155;
+  --text-muted: #94a3b8;
+  --border: #334155;
+}
+
+.dark body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Image loading skeleton */
+.img-loading {
+  background: linear-gradient(90deg, var(--surface) 25%, var(--surface-dark) 50%, var(--surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 /* Leaflet map overrides */
 .leaflet-container {
   z-index: 1;

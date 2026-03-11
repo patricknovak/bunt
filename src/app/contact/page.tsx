@@ -19,6 +19,18 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Build mailto with form data
+    const subject = encodeURIComponent(
+      `Website Contact: ${formData.service || "General Inquiry"} - ${formData.name}`
+    );
+    const body = encodeURIComponent(
+      `New contact form submission:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || "Not provided"}\nOrganization: ${formData.organization || "Not provided"}\nService Area: ${formData.service || "Not specified"}\nPreferred Office: ${formData.office || "Any"}\n\nMessage:\n${formData.message}`
+    );
+    const officeEmail =
+      offices.find((o) => o.city === formData.office)?.email || "info@bunteng.com";
+    window.open(`mailto:${officeEmail}?subject=${subject}&body=${body}`, "_blank");
+
     setSubmitted(true);
   };
 

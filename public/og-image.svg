@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0f4c75"/>
+  <rect x="0" y="580" width="1200" height="50" fill="#1b998b"/>
+  <text x="100" y="250" font-family="Helvetica Neue, Arial, sans-serif" font-weight="700" font-size="72" fill="white" letter-spacing="4">BUNT</text>
+  <text x="100" y="310" font-family="Helvetica Neue, Arial, sans-serif" font-weight="400" font-size="32" fill="white" opacity="0.8" letter-spacing="3">&amp; ASSOCIATES ENGINEERING LTD.</text>
+  <line x1="100" y1="340" x2="500" y2="340" stroke="white" stroke-width="2" opacity="0.4"/>
+  <text x="100" y="400" font-family="Helvetica Neue, Arial, sans-serif" font-weight="300" font-size="28" fill="white" opacity="0.7">Transportation Planning &amp; Engineering</text>
+  <text x="100" y="445" font-family="Helvetica Neue, Arial, sans-serif" font-weight="300" font-size="22" fill="white" opacity="0.5">Vancouver | Victoria | Kelowna | Calgary | Edmonton</text>
+  <text x="100" y="530" font-family="Helvetica Neue, Arial, sans-serif" font-weight="400" font-size="20" fill="#2ec4b6">www.bunteng.com</text>
+</svg>
