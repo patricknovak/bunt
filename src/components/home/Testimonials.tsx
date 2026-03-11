@@ -3,7 +3,7 @@ import { offices } from "@/lib/data/offices";
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-[#0b1121]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Testimonials */}
         <div className="text-center mb-16">
@@ -39,7 +39,7 @@ export default function Testimonials() {
           ].map((testimonial) => (
             <div
               key={testimonial.org}
-              className="p-8 rounded-2xl bg-surface border border-border"
+              className="p-8 rounded-2xl bg-surface dark:bg-[#141c2e] border border-border dark:border-blue-900/40"
             >
               <p className="text-foreground leading-relaxed mb-6 italic">
                 &ldquo;{testimonial.quote}&rdquo;
@@ -69,7 +69,7 @@ export default function Testimonials() {
           {offices.map((office) => (
             <div
               key={office.city}
-              className="text-center p-6 rounded-xl bg-surface border border-border hover:border-primary/30 hover:shadow-md transition-all"
+              className="text-center p-6 rounded-xl bg-surface dark:bg-[#141c2e] border border-border dark:border-blue-900/40 hover:border-primary/30 dark:hover:border-blue-500/40 hover:shadow-md transition-all"
             >
               <MapPin className="w-6 h-6 text-primary mx-auto mb-3" />
               <div className="font-semibold text-foreground">{office.city}</div>

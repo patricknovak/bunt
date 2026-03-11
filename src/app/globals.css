@@ -65,8 +65,8 @@ html {
 
 /* Dark mode */
 .dark {
-  --background: #0f172a;
-  --foreground: #e2e8f0;
+  --background: #0b1121;
+  --foreground: #f1f5f9;
   --primary: #3b82f6;
   --primary-light: #60a5fa;
   --primary-dark: #2563eb;
@@ -74,10 +74,10 @@ html {
   --secondary-light: #5eead4;
   --accent: #f97316;
   --accent-light: #fb923c;
-  --surface: #1e293b;
-  --surface-dark: #334155;
+  --surface: #141c2e;
+  --surface-dark: #1e293b;
   --text-muted: #94a3b8;
-  --border: #334155;
+  --border: #1e3a5f;
 }
 
 .dark body {
