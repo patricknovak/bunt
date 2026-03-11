@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #1a1a2e;
@@ -86,12 +88,9 @@ html {
 }
 
 /* Dark mode: auto-fix literal bg-white cards, panels, etc. */
-.dark .bg-white {
+.dark .bg-white,
+.dark .bg-white\/95 {
   background-color: var(--surface) !important;
-}
-
-.dark .bg-surface {
-  background-color: var(--surface-dark) !important;
 }
 
 .dark .bg-green-50 {
